@@ -44,7 +44,7 @@ packages:
     source: hosted
     version: "1.0.3"
   angular_forms:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: angular_forms
       url: "https://pub.dartlang.org"

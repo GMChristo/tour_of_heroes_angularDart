@@ -1,16 +1,23 @@
 import 'package:angular/angular.dart';
-
-// import 'src/todo_list/todo_list_component.dart';
-
-// AngularDart info: https://angulardart.dev
-// Components info: https://angulardart.dev/components
+import 'package:angular_forms/angular_forms.dart';
+import 'package:angular_tour_of_heroes/src/hero.dart';
 
 @Component(
   selector: 'my-app',
   styleUrls: ['app_component.css'],
-  templateUrl: 'app_component.html',
-  // directives: [TodoListComponent],
+  // templateUrl: 'app_component.html',
+  template: '''
+    <h1>{{title}}</h1>
+    <h2>{{hero.name}}</h2>
+    <div><label>id: </label>{{hero.id}}</div>
+    <div>
+      <label>name: </label>
+      <input [(ngModel)]="hero.name" placeholder="name">
+    </div>
+  ''',
+  directives: [formDirectives],
 )
 class AppComponent {
-  // Nothing here yet. All logic is in TodoListComponent.
+  final title = 'Tour of Heroes';
+  var hero = Hero(1, 'Windstorme');
 }
