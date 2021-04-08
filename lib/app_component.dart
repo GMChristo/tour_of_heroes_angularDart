@@ -5,9 +5,16 @@ import 'src/routes.dart';
 
 @Component(
   selector: 'my-app',
-  template: ''' ···
-    <router-outlet [routes]="Routes.all"></router-outlet>
-  ''',
+  template: '''
+  <h1>{{title}}</h1>
+  <nav>
+    <a [routerLink]="RoutePaths.dashboard.toUrl()"
+       [routerLinkActive]="'active'">Dashboard</a>
+    <a [routerLink]="RoutePaths.heroes.toUrl()"
+       [routerLinkActive]="'active'">Heroes</a>
+  </nav>
+  <router-outlet [routes]="Routes.all"></router-outlet>
+''',
   directives: [routerDirectives],
   providers: [ClassProvider(HeroService)],
   exports: [RoutePaths, Routes],
