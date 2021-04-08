@@ -1,29 +1,17 @@
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
-import 'package:angular_tour_of_heroes/src/hero.dart';
-import 'src/hero_component.dart';
+
 import 'src/hero_service.dart';
+import 'src/hero_list_component.dart';
 
 @Component(
   selector: 'my-app',
-  styleUrls: ['app_component.css'],
-  templateUrl: 'app_component.html',
-  directives: [formDirectives, coreDirectives, HeroComponent],
+  template: '''
+    <h1>{{title}}</h1>
+    <my-heroes></my-heroes>
+  ''',
+  directives: [HeroListComponent],
   providers: [ClassProvider(HeroService)],
 )
-class AppComponent implements OnInit {
+class AppComponent {
   final title = 'Tour of Heroes';
-  List<Hero> heroes;
-  Hero selected;
-  void onSelect(Hero hero) => selected = hero;
-
-  final HeroService _heroService;
-  AppComponent(this._heroService);
-
-  @override
-  void ngOnInit() => _getHeroes();
-
-  Future<void> _getHeroes() async {
-    heroes = await _heroService.getAll();
-  }
 }
