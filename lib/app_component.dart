@@ -2,6 +2,7 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_tour_of_heroes/src/hero.dart';
 import 'package:angular_tour_of_heroes/src/mock_heroes.dart';
+import 'src/hero_component.dart';
 
 @Component(
   selector: 'my-app',
@@ -10,6 +11,7 @@ import 'package:angular_tour_of_heroes/src/mock_heroes.dart';
   directives: [
     formDirectives,
     coreDirectives,
+    HeroComponent
   ],
 )
 class AppComponent {
